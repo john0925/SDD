@@ -1,0 +1,47 @@
+[
+  {
+    "id": "meal-001",
+    "name": "嫩煎雞胸餐盒",
+    "description": "特選煎烤雞胸肉，搭配有機藜麥、烤地瓜及青花菜。",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuB7W1GcblrAm2M3_OAszNZvxW9ni8rpcQP4g5PrMX35kDFc8N5leiDw0gEYXQtQOf0tZnDAWR7qdofiuUFdMUlQJL2sSyX2P2iRYA0hYq02g8Nv-lY1UcC6lnELL2igEtLD2BNieUkdM_NgsjeAGlw7Ya9v84HofkcSJ3t1023yqrG-KdhPdydOmKRy2TVW6GLAHv8eBdTiRiaz_bHP-R4uvG3P_XI24SJ8RWxmrAIIBz7_Wy-PR_S9lRj60dUaNiLu5c5C-_t3nSaM",
+    "imageAlt": "Healthy salad bowl with mixed greens, avocado, cherry tomatoes, and sliced grilled chicken breast on a marble surface",
+    "carbCategory": "low",
+    "calories": 450,
+    "nutrition": {
+      "protein": 45,
+      "carbs": 30,
+      "fat": 15
+    },
+    "price": 180
+  },
+  {
+    "id": "meal-002",
+    "name": "清蒸鮭魚藜麥盆",
+    "description": "野生大西洋鮭魚，搭配三色藜麥及鮮嫩蘆筍。",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBxxAhMXRLL-28yai1wPS4dUFPoq1THfEEDJ4-mJRsWLlPPCgGK1eegNKPE4T8FzpSGdX_CJVeNk_eHrryJsLkNAvBeeryQVz3YCkkty0DmBU2eydrSqzla-Gi6f0icsjSrh7IofW-5AGYp4zq6ScjQ5JARVg_h4GxqgCbVXAU-T2nQ0ASJmXGgVvhtCBPM0jAsBxCUfQC9sW1dPQYOKN-7_2ZyMW9GtBgKNbQyt7kYiHsKtB3zsrRxAIldtyRiVWvaUAvd6aY1XThi",
+    "imageAlt": "Nutritious bowl featuring steamed salmon fillet, colorful quinoa, edamame, and fresh spinach on a light grey background",
+    "carbCategory": "high",
+    "calories": 520,
+    "nutrition": {
+      "protein": 38,
+      "carbs": 45,
+      "fat": 22
+    },
+    "price": 250
+  },
+  {
+    "id": "meal-003",
+    "name": "低碳鮮蝦花椰菜飯",
+    "description": "蒜香奶油蝦仁搭配清爽花椰菜飯與新鮮檸檬汁。",
+    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuA14m_QfqN9cR49URG5V_IS0WS3-zdTpSYDaczOLqm-eOXKqDwknAxEq_rfucVcTFbc5-kWFO_vbHDl-Tsovqb0WHLca_Gdnc4G3fc5QNbUX1qZutRczUd3iuCdRYFh0hywRMEOl4l9yStSf6s4cFUGk6SSzyBG3RY3pPTyuCaCCtU9Cj4t9v1p5hcztVRCLgUwzdR4bRG13BU3q8_I545iToxYHnoYKOypJHFZ0z6_9LUNSR09wVIoE-9Ri7Mq9mNDZiVNtr8Gc0H6",
+    "imageAlt": "Low carb meal with grilled shrimp, cauliflower rice, and fresh avocado slices served in a ceramic bowl",
+    "carbCategory": "none",
+    "calories": 320,
+    "nutrition": {
+      "protein": 35,
+      "carbs": 12,
+      "fat": 14
+    },
+    "price": 220
+  }
+]

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menu Page - 健康日常</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#9c4f00",
+                        "outline": "#75796b",
+                        "surface-container-highest": "#e3e3da",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fbfaf1",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "on-secondary-fixed-variant": "#474836",
+                        "secondary-fixed": "#e4e4cc",
+                        "secondary-fixed-dim": "#c8c8b0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#1b1d0e",
+                        "primary-container": "#556b2f",
+                        "on-tertiary-container": "#ffdac2",
+                        "surface-dim": "#dbdad2",
+                        "on-surface-variant": "#45483c",
+                        "secondary-container": "#e1e1c9",
+                        "primary": "#3e5219",
+                        "on-error": "#ffffff",
+                        "background": "#fbfaf1",
+                        "tertiary-fixed": "#ffdcc5",
+                        "inverse-on-surface": "#f2f1e8",
+                        "surface-container": "#efeee6",
+                        "surface-tint": "#50652a",
+                        "on-background": "#1b1c17",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e9e8e0",
+                        "surface": "#fbfaf1",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#783b00",
+                        "primary-fixed": "#d2eca2",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "on-primary-fixed-variant": "#394d14",
+                        "inverse-surface": "#30312b",
+                        "primary-fixed-dim": "#b6d088",
+                        "on-tertiary-fixed": "#301400",
+                        "inverse-primary": "#b6d088",
+                        "secondary": "#5e604d",
+                        "surface-container-low": "#f5f4eb",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e3e3da",
+                        "on-surface": "#1b1c17",
+                        "on-secondary-container": "#636451",
+                        "on-primary-container": "#d0eba1",
+                        "on-primary-fixed": "#131f00",
+                        "outline-variant": "#c5c8b8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {},
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #fbfaf1;
+            color: #1b1c17;
+        }
+    </style>
+</head>
+<body class="font-body antialiased selection:bg-primary-container selection:text-on-primary-container pb-24 md:pb-0">
+<!-- TopNavBar (Web) -->
+<nav class="hidden md:flex bg-[#fbfaf1]/70 dark:bg-stone-900/70 backdrop-blur-md docked full-width top-0 sticky z-50 shadow-sm dark:shadow-none font-['Plus_Jakarta_Sans'] font-medium text-sm flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold text-[#3e5219] dark:text-[#a3b18a]">健康日常</span>
+<div class="flex gap-6">
+<a class="text-[#3e5219] font-bold border-b-2 border-[#3e5219] pb-1" href="#">菜單</a>
+<a class="text-[#1b1c17]/60 dark:text-white/60 hover:text-[#3e5219] transition-colors" href="#">關於我們</a>
+<a class="text-[#1b1c17]/60 dark:text-white/60 hover:text-[#3e5219] transition-colors" href="#">我的訂單</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[#3e5219] dark:text-[#a3b18a]">會員點數: 120pt</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden hover:bg-white/20 dark:hover:bg-black/20 transition-all">
+<img alt="Member Avatar" data-alt="Close up portrait of a young professional smiling naturally with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8qjPXKlE7xBwHepwigVEHbwvFURT5lMFx4XEDnZENTjqBDJSo8UlCd4aLwRA8E_a4eksn1hf2h7m4n1OxptCxnvFssQe2W747f31DmeFQDHbiUjQwnJA8kiI1IVZ8BeWFxvefgcwjCt2dacFqkbRtlGYxRuU7OvjSvAYR58F0xAVG0_gf88hLQGUK32UifpSfA8LhwGI4Y4GCXCXWv8M05Bh0evPC0tBljAo7KR71SHQr8OM6slyKPEWFtd0YzocbTV9XT-izGW3s"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12">
+<!-- Header / Hero Section -->
+<header class="mb-12 relative">
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-container opacity-5 rounded-3xl -z-10"></div>
+<div class="py-12 px-6 md:px-12 flex flex-col md:flex-row items-center gap-8 bg-surface-container-low rounded-3xl overflow-hidden">
+<div class="flex-1 space-y-4">
+<h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight leading-tight">
+                        每一口，都是精準計算的健康
+                    </h1>
+<p class="font-body text-on-surface-variant text-lg md:text-xl max-w-2xl">為您的健康旅程精心設計的營養餐點。</p>
+</div>
+<div class="w-full md:w-1/3 h-48 md:h-64 rounded-2xl overflow-hidden shadow-[0_-4px_24px_rgba(27,28,23,0.06)]">
+<img alt="Healthy Meal Display" class="w-full h-full object-cover" data-alt="Top down view of a vibrant healthy bowl with fresh greens, roasted vegetables, and a perfectly cooked egg on a light wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2H2WYDkX9rbB9nPoIwqABh9lzqMb97P2tguh3ASCedtO5aurt9UCS_6i4H_aSGQ9jxQ1Akou9UzBxLddqcnCZNmsE0FO7prz2Qp1BFeCjo5aF5nYFHr_1m5q37-JOmeAzSPsl0y6SxKgKTw2JsLScCdvy6wStYKVb3B_Ph2cpXIsz3vOTZ0cKULu9MoCBhDTUXS51eoWADw73ycTUuu9l-ilDhKy6n6LWYeGWHm7co2KjhPWJZTSlcdIUtrlflhF2eetg76BEGo03"/>
+</div>
+</div>
+</header>
+<!-- FilterBar -->
+<section class="mb-10 sticky top-20 z-40 bg-surface/90 backdrop-blur-md py-4 -mx-4 px-4 sm:mx-0 sm:px-0">
+<div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide snap-x">
+<button class="snap-start shrink-0 px-6 py-2.5 rounded-full bg-primary text-on-primary font-label text-sm font-semibold shadow-[0_-4px_24px_rgba(27,28,23,0.06)] transition-all">全部</button>
+<button class="snap-start shrink-0 px-6 py-2.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label text-sm font-semibold hover:bg-secondary-container transition-all">無碳</button>
+<button class="snap-start shrink-0 px-6 py-2.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label text-sm font-semibold hover:bg-secondary-container transition-all">低碳</button>
+<button class="snap-start shrink-0 px-6 py-2.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label text-sm font-semibold hover:bg-secondary-container transition-all">高碳</button>
+</div>
+</section>
+<!-- Meal List Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pb-12">
+<!-- Meal Card 1 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_-4px_24px_rgba(27,28,23,0.06)] flex flex-col group">
+<div class="relative h-56 overflow-hidden">
+<img alt="嫩煎雞胸餐盒" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Healthy salad bowl with mixed greens, avocado, cherry tomatoes, and sliced grilled chicken breast on a marble surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7W1GcblrAm2M3_OAszNZvxW9ni8rpcQP4g5PrMX35kDFc8N5leiDw0gEYXQtQOf0tZnDAWR7qdofiuUFdMUlQJL2sSyX2P2iRYA0hYq02g8Nv-lY1UcC6lnELL2igEtLD2BNieUkdM_NgsjeAGlw7Ya9v84HofkcSJ3t1023yqrG-KdhPdydOmKRy2TVW6GLAHv8eBdTiRiaz_bHP-R4uvG3P_XI24SJ8RWxmrAIIBz7_Wy-PR_S9lRj60dUaNiLu5c5C-_t3nSaM"/>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                        450 kcal
+                    </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2">嫩煎雞胸餐盒</h3>
+<p class="font-body text-sm text-on-surface-variant mb-4 line-clamp-2">特選煎烤雞胸肉，搭配有機藜麥、烤地瓜及青花菜。</p>
+<div class="flex gap-2 mb-6 mt-auto">
+<span class="px-2 py-1 rounded-sm bg-tertiary-container text-on-tertiary-container font-label text-xs font-semibold">蛋白質: 45g</span>
+<span class="px-2 py-1 rounded-sm bg-surface-container-high text-on-surface font-label text-xs font-semibold">碳水: 30g</span>
+<span class="px-2 py-1 rounded-sm bg-surface-container-high text-on-surface font-label text-xs font-semibold">脂肪: 15g</span>
+</div>
+<button class="w-full bg-primary text-on-primary hover:bg-primary-container rounded-full py-3 px-4 font-label font-semibold text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                        加入購物車
+                    </button>
+</div>
+</article>
+<!-- Meal Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_-4px_24px_rgba(27,28,23,0.06)] flex flex-col group">
+<div class="relative h-56 overflow-hidden">
+<img alt="清蒸鮭魚藜麥盆" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Nutritious bowl featuring steamed salmon fillet, colorful quinoa, edamame, and fresh spinach on a light grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxxAhMXRLL-28yai1wPS4dUFPoq1THfEEDJ4-mJRsWLlPPCgGK1eegNKPE4T8FzpSGdX_CJVeNk_eHrryJsLkNAvBeeryQVz3YCkkty0DmBU2eydrSqzla-Gi6f0icsjSrh7IofW-5AGYp4zq6ScjQ5JARVg_h4GxqgCbVXAU-T2nQ0ASJmXGgVvhtCBPM0jAsBxCUfQC9sW1dPQYOKN-7_2ZyMW9GtBgKNbQyt7kYiHsKtB3zsrRxAIldtyRiVWvaUAvd6aY1XThi"/>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                        520 kcal
+                    </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2">清蒸鮭魚藜麥盆</h3>
+<p class="font-body text-sm text-on-surface-variant mb-4 line-clamp-2">野生大西洋鮭魚，搭配三色藜麥及鮮嫩蘆筍。</p>
+<div class="flex gap-2 mb-6 mt-auto">
+<span class="px-2 py-1 rounded-sm bg-tertiary-container text-on-tertiary-container font-label text-xs font-semibold">蛋白質: 38g</span>
+<span class="px-2 py-1 rounded-sm bg-surface-container-high text-on-surface font-label text-xs font-semibold">碳水: 45g</span>
+<span class="px-2 py-1 rounded-sm bg-surface-container-high text-on-surface font-label text-xs font-semibold">脂肪: 22g</span>
+</div>
+<button class="w-full bg-primary text-on-primary hover:bg-primary-container rounded-full py-3 px-4 font-label font-semibold text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                        加入購物車
+                    </button>
+</div>
+</article>
+<!-- Meal Card 3 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_-4px_24px_rgba(27,28,23,0.06)] flex flex-col group">
+<div class="relative h-56 overflow-hidden">
+<img alt="低碳鮮蝦花椰菜飯" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Low carb meal with grilled shrimp, cauliflower rice, and fresh avocado slices served in a ceramic bowl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA14m_QfqN9cR49URG5V_IS0WS3-zdTpSYDaczOLqm-eOXKqDwknAxEq_rfucVcTFbc5-kWFO_vbHDl-Tsovqb0WHLca_Gdnc4G3fc5QNbUX1qZutRczUd3iuCdRYFh0hywRMEOl4l9yStSf6s4cFUGk6SSzyBG3RY3pPTyuCaCCtU9Cj4t9v1p5hcztVRCLgUwzdR4bRG13BU3q8_I545iToxYHnoYKOypJHFZ0z6_9LUNSR09wVIoE-9Ri7Mq9mNDZiVNtr8Gc0H6"/>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                        320 kcal
+                    </div>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-headline text-xl font-bold text-on-surface mb-2">低碳鮮蝦花椰菜飯</h3>
+<p class="font-body text-sm text-on-surface-variant mb-4 line-clamp-2">蒜香奶油蝦仁搭配清爽花椰菜飯與新鮮檸檬汁。</p>
+<div class="flex gap-2 mb-6 mt-auto">
+<span class="px-2 py-1 rounded-sm bg-tertiary-container text-on-tertiary-container font-label text-xs font-semibold">蛋白質: 35g</span>
+<span class="px-2 py-1 rounded-sm bg-surface-container-high text-on-surface font-label text-xs font-semibold">碳水: 12g</span>
+<span class="px-2 py-1 rounded-sm bg-surface-container-high text-on-surface font-label text-xs font-semibold">脂肪: 14g</span>
+</div>
+<button class="w-full bg-primary text-on-primary hover:bg-primary-container rounded-full py-3 px-4 font-label font-semibold text-sm transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+                        加入購物車
+                    </button>
+</div>
+</article>
+</section>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden bg-[#ffffff]/70 dark:bg-stone-900/70 backdrop-blur-lg docked full-width bottom-0 rounded-t-3xl shadow-[0_-4px_24px_rgba(27,28,23,0.06)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 font-['Inter'] text-[11px] font-semibold tracking-tight">
+<a class="flex flex-col items-center justify-center bg-[#556b2f] text-white rounded-2xl px-5 py-2 hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span>首頁</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c17]/50 dark:text-white/50 px-5 py-2 hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span>探索</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c17]/50 dark:text-white/50 px-5 py-2 hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1">shopping_bag</span>
+<span>訂單</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c17]/50 dark:text-white/50 px-5 py-2 hover:opacity-80 transition-opacity" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span>個人檔案</span>
+</a>
+</nav>
+</body></html>

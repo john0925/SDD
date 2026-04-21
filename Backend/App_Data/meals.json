@@ -1,0 +1,152 @@
+[
+  {
+    "id": "meal-001",
+    "name": "嫩煎雞胸餐盒",
+    "description": "特選煎烤雞胸肉，搭配有機藜麥、烤地瓜及青花菜。",
+    "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Grilled chicken breast with quinoa and broccoli",
+    "carbCategory": "low",
+    "calories": 450,
+    "nutrition": {
+      "protein": 45,
+      "carbs": 30,
+      "fat": 15
+    },
+    "price": 180
+  },
+  {
+    "id": "meal-002",
+    "name": "清蒸鮭魚藜麥盆",
+    "description": "野生大西洋鮭魚，搭配三色藜麥及鮮嫩蘆筍。",
+    "imageUrl": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Steamed salmon with quinoa and asparagus",
+    "carbCategory": "high",
+    "calories": 520,
+    "nutrition": {
+      "protein": 38,
+      "carbs": 45,
+      "fat": 22
+    },
+    "price": 250
+  },
+  {
+    "id": "meal-003",
+    "name": "低碳鮮蝦花椰菜飯",
+    "description": "蒜香奶油蝦仁搭配清爽花椰菜飯與新鮮檸檬汁。",
+    "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Grilled shrimp with cauliflower rice",
+    "carbCategory": "none",
+    "calories": 320,
+    "nutrition": {
+      "protein": 35,
+      "carbs": 12,
+      "fat": 14
+    },
+    "price": 220
+  },
+  {
+    "id": "meal-004",
+    "name": "慢燉牛腱糙米飯",
+    "description": "慢火燉煮澳洲牛腱，配上營養糙米飯與紅蘿蔔。",
+    "imageUrl": "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Slow cooked beef with brown rice",
+    "carbCategory": "high",
+    "calories": 580,
+    "nutrition": {
+      "protein": 42,
+      "carbs": 55,
+      "fat": 18
+    },
+    "price": 230
+  },
+  {
+    "id": "meal-005",
+    "name": "地中海烤時蔬豆腐盆",
+    "description": "香煎板豆腐配上多種時蔬與特製油醋醬。",
+    "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Mediterranean tofu bowl with roasted vegetables",
+    "carbCategory": "low",
+    "calories": 380,
+    "nutrition": {
+      "protein": 28,
+      "carbs": 25,
+      "fat": 12
+    },
+    "price": 170
+  },
+  {
+    "id": "meal-006",
+    "name": "香煎鯖魚溫沙拉",
+    "description": "富含 Omega-3 的挪威鯖魚，搭配季節性溫沙拉。",
+    "imageUrl": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Grilled mackerel with warm salad",
+    "carbCategory": "none",
+    "calories": 420,
+    "nutrition": {
+      "protein": 32,
+      "carbs": 8,
+      "fat": 28
+    },
+    "price": 210
+  },
+  {
+    "id": "meal-007",
+    "name": "蒜香豬里肌野米飯",
+    "description": "嫩切豬里肌佐蒜香醬汁，搭配野米飯與甜豆莢。",
+    "imageUrl": "https://images.unsplash.com/photo-1432139555190-58524dae6a55?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Garlic pork loin with wild rice",
+    "carbCategory": "high",
+    "calories": 510,
+    "nutrition": {
+      "protein": 36,
+      "carbs": 48,
+      "fat": 16
+    },
+    "price": 190
+  },
+  {
+    "id": "meal-008",
+    "name": "舒肥鴨胸節瓜麵",
+    "description": "嫩煎舒肥鴨胸，搭配清爽低卡的節瓜麵線。",
+    "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Sous-vide duck breast with zucchini noodles",
+    "carbCategory": "none",
+    "calories": 460,
+    "nutrition": {
+      "protein": 34,
+      "carbs": 10,
+      "fat": 32
+    },
+    "price": 280
+  },
+  {
+    "id": "meal-009",
+    "name": "泰式打拋豬蒟蒻飯",
+    "description": "泰式風味打拋豬，搭配超低卡蒟蒻飯，美味無負擔。",
+    "imageUrl": "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Thai basil pork with konjac rice",
+    "carbCategory": "low",
+    "calories": 390,
+    "nutrition": {
+      "protein": 30,
+      "carbs": 15,
+      "fat": 22
+    },
+    "price": 185
+  },
+  {
+    "id": "meal-010",
+    "name": "烤味噌梅花豬配蒸地瓜",
+    "description": "味噌醃製梅花豬肉，搭配高纖蒸地瓜與烤南瓜。",
+    "imageUrl": "https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Miso pork with steamed sweet potatoes",
+    "carbCategory": "high",
+    "calories": 540,
+    "nutrition": {
+      "protein": 35,
+      "carbs": 52,
+      "fat": 20
+    },
+    "price": 200
+  }
+]
