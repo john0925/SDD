@@ -27,7 +27,10 @@
         </span>
       </div>
 
-      <button class="w-full bg-primary text-on-primary hover:bg-primary-container rounded-full py-3 px-4 font-label font-semibold text-sm transition-colors flex items-center justify-center gap-2">
+      <button 
+        @click="cartStore.addToCart(meal)"
+        class="w-full bg-primary text-on-primary hover:bg-primary-container rounded-full py-3 px-4 font-label font-semibold text-sm transition-all active:scale-95 flex items-center justify-center gap-2"
+      >
         <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
         加入購物車
       </button>
@@ -36,10 +39,17 @@
 </template>
 
 <script setup lang="ts">
+import { useCartStore } from '../store/cart';
+
 interface Nutrition {
   protein: number;
   carbs: number;
   fat: number;
+}
+
+interface MealAttributes {
+  isNonRefinedStarch: boolean;
+  hasDiverseVeg: boolean;
 }
 
 interface Meal {
@@ -52,9 +62,12 @@ interface Meal {
   calories: number;
   nutrition: Nutrition;
   price: number;
+  attributes?: MealAttributes;
 }
 
 defineProps<{
   meal: Meal;
 }>();
+
+const cartStore = useCartStore();
 </script>

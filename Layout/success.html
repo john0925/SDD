@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-TW"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>健康日常 - 訂單完成</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-on-surface": "#f2f1e8",
+                        "surface-variant": "#e3e3da",
+                        "secondary-fixed": "#e4e4cc",
+                        "primary-fixed": "#d2eca2",
+                        "outline-variant": "#c5c8b8",
+                        "surface": "#fbfaf1",
+                        "background": "#fbfaf1",
+                        "on-secondary-fixed-variant": "#474836",
+                        "on-surface-variant": "#45483c",
+                        "on-secondary-container": "#636451",
+                        "tertiary-fixed": "#ffdcc5",
+                        "inverse-surface": "#30312b",
+                        "surface-container-highest": "#e3e3da",
+                        "surface-container": "#efeee6",
+                        "on-surface": "#1b1c17",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#713700",
+                        "on-tertiary-fixed": "#301400",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#b6d088",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1b1c17",
+                        "surface-bright": "#fbfaf1",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#e1e1c9",
+                        "on-primary-fixed": "#131f00",
+                        "surface-tint": "#50652a",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#556b2f",
+                        "on-primary-fixed-variant": "#394d14",
+                        "primary": "#3e5219",
+                        "tertiary": "#783b00",
+                        "surface-dim": "#dbdad2",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "outline": "#75796b",
+                        "surface-container-high": "#e9e8e0",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f5f4eb",
+                        "secondary-fixed-dim": "#c8c8b0",
+                        "primary-fixed-dim": "#b6d088",
+                        "secondary": "#5e604d",
+                        "on-primary-container": "#d0eba1",
+                        "tertiary-container": "#9c4f00",
+                        "on-tertiary-container": "#ffdac2",
+                        "on-secondary-fixed": "#1b1d0e",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fbfaf1;
+            color: #1b1c17;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-[#fbfaf1] dark:bg-[#1b1c17] docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-bold text-[#3e5219] dark:text-[#fbfaf1] tracking-tighter">
+                健康日常
+            </div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-[#1b1c17]/60 dark:text-[#fbfaf1]/60 font-medium font-['Plus_Jakarta_Sans'] text-sm tracking-tight hover:text-[#556b2f] transition-colors duration-200" href="#">Menu</a>
+<a class="text-[#1b1c17]/60 dark:text-[#fbfaf1]/60 font-medium font-['Plus_Jakarta_Sans'] text-sm tracking-tight hover:text-[#556b2f] transition-colors duration-200" href="#">About Us</a>
+<a class="text-[#3e5219] dark:text-[#fbfaf1] font-bold border-b-2 border-[#3e5219] dark:border-[#fbfaf1] pb-1 font-['Plus_Jakarta_Sans'] text-sm tracking-tight" href="#">My Orders</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-low px-4 py-1.5 rounded-full flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-primary font-bold text-sm">120pt</span>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/10">
+<img alt="Member Profile Avatar" class="w-full h-full object-cover" data-alt="Close-up portrait of a smiling woman with clear skin and natural hair against a soft sunlit background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRzx-cFSv1tG93iAJ2LgQTGNU64rpxcNUpVfn_kOBzbjVq6guF54KDsVa_eI2OVFgPZRmAOOemn-tOtTozBG_h7gBCsSFPfbrIRGbQsTv8-ZzZxr8CyeWKTXqEqxw2qwayE10Vvo6Dwu9vEdfuSvQEyPYRvcXrzewbUgdkz5vd80bqgfpGEYOguRDqBF5fIKS5tNxCoxyqEDRqxa21goH1pmNkkHHbz9Nyxq7EwyLnTg36npOBW05Xgw1vgqbFQmfNqcIcch4V2fVR"/>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center px-6 py-12 max-w-7xl mx-auto w-full">
+<!-- Success Visual Feedback -->
+<div class="text-center mb-12">
+<div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-primary/10 mb-6">
+<span class="material-symbols-outlined text-primary text-6xl" style="font-variation-settings: 'wght' 600;">check_circle</span>
+</div>
+<h1 class="text-3xl md:text-4xl font-extrabold text-primary mb-4 tracking-tight">
+                太棒了！我們已開始為您準備今日的日常健康。
+            </h1>
+<p class="text-on-surface-variant font-medium italic">
+                “今天的您，也往健康的道路邁進了一步！”
+            </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
+<!-- Core Information Card -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_24px_32px_-4px_rgba(27,28,23,0.06)] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-8 -mt-8"></div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+<div>
+<p class="text-label-sm text-on-surface-variant uppercase tracking-widest font-semibold text-xs mb-1">Order ID</p>
+<h3 class="text-xl font-bold text-on-surface">#DH-2026041901</h3>
+</div>
+<div class="bg-primary-container text-on-primary-container px-6 py-3 rounded-xl text-center">
+<p class="text-xs font-bold uppercase tracking-wider mb-1 opacity-80">預計取餐時間</p>
+<p class="text-2xl font-black">12:30 PM</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface mb-1">健康日常 - 台北信義店</p>
+<p class="text-sm text-on-surface-variant leading-relaxed">台北市信義區信義路五段7號</p>
+<p class="text-xs text-primary font-medium mt-1">距離您約 0.8 km</p>
+</div>
+</div>
+<div class="h-[200px] w-full rounded-xl overflow-hidden grayscale opacity-80 border border-outline-variant/20">
+<img alt="Map location" class="w-full h-full object-cover" data-alt="Minimalist map view of Taipei Xinyi district streets with a clean aesthetic and soft green marker" data-location="Taipei Xinyi District" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwZLuKKSJaXfyKDtfa89zMt57TKtYQOcgyat47ShmoYjBU4DUIyCHFhqNYA0d2bJJZsJooR1BjHfyOcxJ79XjmxLaxKAZW4od8XgXU6ZlkgZE2jCsw1xYXhCj3XsA_iHnIV_QjpC_KW27lx1CRsryVyr6xUZnAhiJYZjYV6Odm_pCsFCs_7KBXbr4RR5refAVz5XVQ9H8fwOkEuQ1KYiBYWBuWBo07RuoPVcMrx4rhd0E-gufpq5uzNQ0cFw7N72MIVkGfPQaJZgHD"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Nutrition Summary & CTA -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Nutrition Summary -->
+<div class="bg-surface-container-low rounded-xl p-8 border-l-4 border-primary">
+<h3 class="text-lg font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">analytics</span>
+                        營養夥伴總結
+                    </h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-lg text-center">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter mb-2">Total Calories</p>
+<p class="text-3xl font-black text-primary tracking-tight">850 <span class="text-sm font-normal">kcal</span></p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg text-center">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter mb-2">Total Protein</p>
+<p class="text-3xl font-black text-tertiary tracking-tight">64 <span class="text-sm font-normal">g</span></p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/20">
+<div class="flex items-center justify-between mb-4">
+<span class="text-sm text-on-surface-variant">飲食均衡度</span>
+<span class="text-sm font-bold text-primary">優秀 92%</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[92%]"></div>
+</div>
+</div>
+</div>
+<!-- Call to Action -->
+<div class="flex flex-col sm:flex-row gap-4 mt-auto">
+<button class="flex-1 bg-primary text-on-primary font-bold py-4 px-6 rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/10 flex items-center justify-center gap-2">
+<span>查看訂單詳情</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="flex-1 border-2 border-primary text-primary font-bold py-4 px-6 rounded-full hover:bg-primary/5 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">restaurant_menu</span>
+<span>回到菜單繼續逛逛</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Secondary Content: Reassurance -->
+<div class="mt-16 w-full max-w-4xl grid md:grid-cols-3 gap-8">
+<div class="text-center">
+<span class="material-symbols-outlined text-primary-container mb-3">eco</span>
+<h4 class="font-bold text-sm mb-1">嚴選食材</h4>
+<p class="text-xs text-on-surface-variant">當日產地直送，確保每一口都是最新鮮的營養。</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-primary-container mb-3">timer</span>
+<h4 class="font-bold text-sm mb-1">準時取餐</h4>
+<p class="text-xs text-on-surface-variant">智慧排程系統，減少您的等待時間。</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-primary-container mb-3">verified_user</span>
+<h4 class="font-bold text-sm mb-1">專業調配</h4>
+<p class="text-xs text-on-surface-variant">營養師認證菜單，精準計算您的日常所需。</p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f5f4eb] dark:bg-[#1b1c17] w-full mt-auto border-t border-[#c5c8b8]/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-10 gap-4 max-w-7xl mx-auto">
+<div class="text-lg font-bold text-[#3e5219] dark:text-[#fbfaf1]">
+                健康日常
+            </div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-xs tracking-wide uppercase text-[#1b1c17]/50 dark:text-[#fbfaf1]/40 hover:text-[#3e5219] transition-opacity duration-300" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-xs tracking-wide uppercase text-[#1b1c17]/50 dark:text-[#fbfaf1]/40 hover:text-[#3e5219] transition-opacity duration-300" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-xs tracking-wide uppercase text-[#1b1c17]/50 dark:text-[#fbfaf1]/40 hover:text-[#3e5219] transition-opacity duration-300" href="#">Contact Support</a>
+</div>
+<div class="font-['Inter'] text-xs tracking-wide uppercase text-[#1b1c17]/50 dark:text-[#fbfaf1]/40">
+                © 2024 健康日常. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

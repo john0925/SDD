@@ -3,8 +3,8 @@
     "id": "meal-001",
     "name": "嫩煎雞胸餐盒",
     "description": "特選煎烤雞胸肉，搭配有機藜麥、烤地瓜及青花菜。",
-    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuB7W1GcblrAm2M3_OAszNZvxW9ni8rpcQP4g5PrMX35kDFc8N5leiDw0gEYXQtQOf0tZnDAWR7qdofiuUFdMUlQJL2sSyX2P2iRYA0hYq02g8Nv-lY1UcC6lnELL2igEtLD2BNieUkdM_NgsjeAGlw7Ya9v84HofkcSJ3t1023yqrG-KdhPdydOmKRy2TVW6GLAHv8eBdTiRiaz_bHP-R4uvG3P_XI24SJ8RWxmrAIIBz7_Wy-PR_S9lRj60dUaNiLu5c5C-_t3nSaM",
-    "imageAlt": "Healthy salad bowl with mixed greens, avocado, cherry tomatoes, and sliced grilled chicken breast on a marble surface",
+    "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Grilled chicken breast with quinoa and broccoli",
     "carbCategory": "low",
     "calories": 450,
     "nutrition": {
@@ -12,14 +12,18 @@
       "carbs": 30,
       "fat": 15
     },
-    "price": 180
+    "price": 180,
+    "attributes": {
+      "isNonRefinedStarch": true,
+      "hasDiverseVeg": true
+    }
   },
   {
     "id": "meal-002",
     "name": "清蒸鮭魚藜麥盆",
     "description": "野生大西洋鮭魚，搭配三色藜麥及鮮嫩蘆筍。",
-    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuBxxAhMXRLL-28yai1wPS4dUFPoq1THfEEDJ4-mJRsWLlPPCgGK1eegNKPE4T8FzpSGdX_CJVeNk_eHrryJsLkNAvBeeryQVz3YCkkty0DmBU2eydrSqzla-Gi6f0icsjSrh7IofW-5AGYp4zq6ScjQ5JARVg_h4GxqgCbVXAU-T2nQ0ASJmXGgVvhtCBPM0jAsBxCUfQC9sW1dPQYOKN-7_2ZyMW9GtBgKNbQyt7kYiHsKtB3zsrRxAIldtyRiVWvaUAvd6aY1XThi",
-    "imageAlt": "Nutritious bowl featuring steamed salmon fillet, colorful quinoa, edamame, and fresh spinach on a light grey background",
+    "imageUrl": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Steamed salmon with quinoa and asparagus",
     "carbCategory": "high",
     "calories": 520,
     "nutrition": {
@@ -27,14 +31,18 @@
       "carbs": 45,
       "fat": 22
     },
-    "price": 250
+    "price": 250,
+    "attributes": {
+      "isNonRefinedStarch": true,
+      "hasDiverseVeg": false
+    }
   },
   {
     "id": "meal-003",
     "name": "低碳鮮蝦花椰菜飯",
     "description": "蒜香奶油蝦仁搭配清爽花椰菜飯與新鮮檸檬汁。",
-    "imageUrl": "https://lh3.googleusercontent.com/aida-public/AB6AXuA14m_QfqN9cR49URG5V_IS0WS3-zdTpSYDaczOLqm-eOXKqDwknAxEq_rfucVcTFbc5-kWFO_vbHDl-Tsovqb0WHLca_Gdnc4G3fc5QNbUX1qZutRczUd3iuCdRYFh0hywRMEOl4l9yStSf6s4cFUGk6SSzyBG3RY3pPTyuCaCCtU9Cj4t9v1p5hcztVRCLgUwzdR4bRG13BU3q8_I545iToxYHnoYKOypJHFZ0z6_9LUNSR09wVIoE-9Ri7Mq9mNDZiVNtr8Gc0H6",
-    "imageAlt": "Low carb meal with grilled shrimp, cauliflower rice, and fresh avocado slices served in a ceramic bowl",
+    "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Grilled shrimp with cauliflower rice",
     "carbCategory": "none",
     "calories": 320,
     "nutrition": {
@@ -42,6 +50,143 @@
       "carbs": 12,
       "fat": 14
     },
-    "price": 220
+    "price": 220,
+    "attributes": {
+      "isNonRefinedStarch": false,
+      "hasDiverseVeg": true
+    }
+  },
+  {
+    "id": "meal-004",
+    "name": "慢燉牛腱糙米飯",
+    "description": "慢火燉煮澳洲牛腱，配上營養糙米飯與紅蘿蔔。",
+    "imageUrl": "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Slow cooked beef with brown rice",
+    "carbCategory": "high",
+    "calories": 580,
+    "nutrition": {
+      "protein": 42,
+      "carbs": 55,
+      "fat": 18
+    },
+    "price": 230,
+    "attributes": {
+      "isNonRefinedStarch": true,
+      "hasDiverseVeg": true
+    }
+  },
+  {
+    "id": "meal-005",
+    "name": "地中海烤時蔬豆腐盆",
+    "description": "香煎板豆腐配上多種時蔬與特製油醋醬。",
+    "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Mediterranean tofu bowl with roasted vegetables",
+    "carbCategory": "low",
+    "calories": 380,
+    "nutrition": {
+      "protein": 28,
+      "carbs": 25,
+      "fat": 12
+    },
+    "price": 170,
+    "attributes": {
+      "isNonRefinedStarch": false,
+      "hasDiverseVeg": true
+    }
+  },
+  {
+    "id": "meal-006",
+    "name": "香煎鯖魚溫沙拉",
+    "description": "富含 Omega-3 的挪威鯖魚，搭配季節性溫沙拉。",
+    "imageUrl": "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Grilled mackerel with warm salad",
+    "carbCategory": "none",
+    "calories": 420,
+    "nutrition": {
+      "protein": 32,
+      "carbs": 8,
+      "fat": 28
+    },
+    "price": 210,
+    "attributes": {
+      "isNonRefinedStarch": false,
+      "hasDiverseVeg": true
+    }
+  },
+  {
+    "id": "meal-007",
+    "name": "蒜香豬里肌野米飯",
+    "description": "嫩切豬里肌佐蒜香醬汁，搭配野米飯與甜豆莢。",
+    "imageUrl": "https://images.unsplash.com/photo-1432139555190-58524dae6a55?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Garlic pork loin with wild rice",
+    "carbCategory": "high",
+    "calories": 510,
+    "nutrition": {
+      "protein": 36,
+      "carbs": 48,
+      "fat": 16
+    },
+    "price": 190,
+    "attributes": {
+      "isNonRefinedStarch": true,
+      "hasDiverseVeg": false
+    }
+  },
+  {
+    "id": "meal-008",
+    "name": "舒肥鴨胸節瓜麵",
+    "description": "嫩煎舒肥鴨胸，搭配清爽低卡的節瓜麵線。",
+    "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Sous-vide duck breast with zucchini noodles",
+    "carbCategory": "none",
+    "calories": 460,
+    "nutrition": {
+      "protein": 34,
+      "carbs": 10,
+      "fat": 32
+    },
+    "price": 280,
+    "attributes": {
+      "isNonRefinedStarch": false,
+      "hasDiverseVeg": true
+    }
+  },
+  {
+    "id": "meal-009",
+    "name": "泰式打拋豬蒟蒻飯",
+    "description": "泰式風味打拋豬，搭配超低卡蒟蒻飯，美味無負擔。",
+    "imageUrl": "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Thai basil pork with konjac rice",
+    "carbCategory": "low",
+    "calories": 390,
+    "nutrition": {
+      "protein": 30,
+      "carbs": 15,
+      "fat": 22
+    },
+    "price": 185,
+    "attributes": {
+      "isNonRefinedStarch": false,
+      "hasDiverseVeg": false
+    }
+  },
+  {
+    "id": "meal-010",
+    "name": "烤味噌梅花豬配蒸地瓜",
+    "description": "味噌醃製梅花豬肉，搭配高纖蒸地瓜與烤南瓜。",
+    "imageUrl": "https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&q=80&w=800",
+    "imageAlt": "Miso pork with steamed sweet potatoes",
+    "carbCategory": "high",
+    "calories": 540,
+    "nutrition": {
+      "protein": 35,
+      "carbs": 52,
+      "fat": 20
+    },
+    "price": 200,
+    "attributes": {
+      "isNonRefinedStarch": true,
+      "hasDiverseVeg": true
+    }
   }
 ]

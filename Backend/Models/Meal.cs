@@ -2,6 +2,8 @@ namespace Backend.Models;
 
 public record Nutrition(int Protein, int Carbs, int Fat);
 
+public record MealAttributes(bool IsNonRefinedStarch, bool HasDiverseVeg);
+
 public record Meal(
     string Id,
     string Name,
@@ -11,5 +13,6 @@ public record Meal(
     string CarbCategory,
     int Calories,
     Nutrition Nutrition,
-    decimal Price
+    decimal Price,
+    MealAttributes? Attributes
 );

@@ -12,7 +12,11 @@
       "carbs": 30,
       "fat": 15
     },
-    "price": 180
+    "price": 180,
+    "attributes": {
+      "isNonRefinedStarch": true,
+      "hasDiverseVeg": true
+    }
   },
   {
     "id": "meal-002",
@@ -27,7 +31,11 @@
       "carbs": 45,
       "fat": 22
     },
-    "price": 250
+    "price": 250,
+    "attributes": {
+      "isNonRefinedStarch": true,
+      "hasDiverseVeg": false
+    }
   },
   {
     "id": "meal-003",
@@ -42,7 +50,11 @@
       "carbs": 12,
       "fat": 14
     },
-    "price": 220
+    "price": 220,
+    "attributes": {
+      "isNonRefinedStarch": false,
+      "hasDiverseVeg": true
+    }
   },
   {
     "id": "meal-004",
@@ -57,7 +69,11 @@
       "carbs": 55,
       "fat": 18
     },
-    "price": 230
+    "price": 230,
+    "attributes": {
+      "isNonRefinedStarch": true,
+      "hasDiverseVeg": true
+    }
   },
   {
     "id": "meal-005",
@@ -72,7 +88,11 @@
       "carbs": 25,
       "fat": 12
     },
-    "price": 170
+    "price": 170,
+    "attributes": {
+      "isNonRefinedStarch": false,
+      "hasDiverseVeg": true
+    }
   },
   {
     "id": "meal-006",
@@ -87,7 +107,11 @@
       "carbs": 8,
       "fat": 28
     },
-    "price": 210
+    "price": 210,
+    "attributes": {
+      "isNonRefinedStarch": false,
+      "hasDiverseVeg": true
+    }
   },
   {
     "id": "meal-007",
@@ -102,7 +126,11 @@
       "carbs": 48,
       "fat": 16
     },
-    "price": 190
+    "price": 190,
+    "attributes": {
+      "isNonRefinedStarch": true,
+      "hasDiverseVeg": false
+    }
   },
   {
     "id": "meal-008",
@@ -117,7 +145,11 @@
       "carbs": 10,
       "fat": 32
     },
-    "price": 280
+    "price": 280,
+    "attributes": {
+      "isNonRefinedStarch": false,
+      "hasDiverseVeg": true
+    }
   },
   {
     "id": "meal-009",
@@ -132,7 +164,11 @@
       "carbs": 15,
       "fat": 22
     },
-    "price": 185
+    "price": 185,
+    "attributes": {
+      "isNonRefinedStarch": false,
+      "hasDiverseVeg": false
+    }
   },
   {
     "id": "meal-010",
@@ -147,6 +183,10 @@
       "carbs": 52,
       "fat": 20
     },
-    "price": 200
+    "price": 200,
+    "attributes": {
+      "isNonRefinedStarch": true,
+      "hasDiverseVeg": true
+    }
   }
 ]
