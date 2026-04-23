@@ -46,8 +46,13 @@ app.MapGet("/api/meals", async ([FromServices] MealDataService mealService, [Fro
 
 app.MapPost("/api/orders", ([FromBody] OrderRequest request) =>
 {
-    // Log the request to see if it arrives
-    Console.WriteLine($"Order received with {request.Items?.Count ?? 0} items. Pickup at: {request.PickupTime}");
+    // Log the request to see the tray structure
+    Console.WriteLine($"Order received with {request.Trays?.Count ?? 0} trays. Pickup at: {request.PickupTime}");
+    
+    foreach (var tray in request.Trays ?? new List<TrayRequest>())
+    {
+        Console.WriteLine($"- Tray: {tray.Name} contains {tray.Items?.Count ?? 0} items");
+    }
     
     var orderId = $"DH-{DateTime.Now:yyyyMMdd}{new Random().Next(10, 99)}";
     return Results.Ok(new { orderId });
@@ -56,3 +61,7 @@ app.MapPost("/api/orders", ([FromBody] OrderRequest request) =>
 .WithOpenApi();
 
 app.Run();
+
+public record OrderItem(string MealId, int Quantity);
+public record TrayRequest(string Name, List<OrderItem> Items);
+public record OrderRequest(List<TrayRequest> Trays, string PickupTime);

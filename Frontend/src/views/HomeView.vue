@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { useCartStore } from '../store/cart';
 import EditorialHeader from '../components/EditorialHeader.vue';
 import FilterBar from '../components/FilterBar.vue';
 import MealCard from '../components/MealCard.vue';
+import TraySelector from '../components/TraySelector.vue';
 
 interface Nutrition {
   protein: number;
   carbs: number;
   fat: number;
+}
+
+interface MealAttributes {
+  isNonRefinedStarch: boolean;
+  hasDiverseVeg: boolean;
 }
 
 interface Meal {
@@ -20,8 +27,10 @@ interface Meal {
   calories: number;
   nutrition: Nutrition;
   price: number;
+  attributes?: MealAttributes;
 }
 
+const cartStore = useCartStore();
 const meals = ref<Meal[]>([]);
 const loading = ref(true);
 const error = ref<string | null>(null);
@@ -42,6 +51,7 @@ const fetchMeals = async (category = 'all') => {
 };
 
 onMounted(() => {
+  cartStore.initTrays();
   fetchMeals();
 });
 
@@ -53,6 +63,11 @@ const handleFilterChanged = (id: string) => {
 <template>
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12">
     <EditorialHeader />
+    
+    <!-- Tray Context Bar -->
+    <div class="mb-10 sticky top-20 z-50">
+      <TraySelector />
+    </div>
     
     <FilterBar @filterChanged="handleFilterChanged" />
     
