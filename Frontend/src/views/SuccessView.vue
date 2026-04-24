@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useCartStore } from '../store/cart';
 
 const cartStore = useCartStore();
@@ -7,9 +7,36 @@ const cartStore = useCartStore();
 // Use direct access to state for reliability
 const order = computed(() => cartStore.lastOrder);
 
+const displayPoints = ref(0);
+const animating = ref(false);
+
 onMounted(() => {
   console.log('SuccessView mounted, lastOrder:', cartStore.lastOrder);
+  if (order.value) {
+    displayPoints.value = order.value.previousPoints;
+    
+    // Start animation after a short delay
+    setTimeout(() => {
+      startPointAnimation();
+    }, 800);
+  }
 });
+
+const startPointAnimation = () => {
+  if (!order.value) return;
+  
+  animating.value = true;
+  const target = order.value.newTotalPoints;
+  
+  const interval = setInterval(() => {
+    if (displayPoints.value < target) {
+      displayPoints.value++;
+    } else {
+      clearInterval(interval);
+      animating.value = false;
+    }
+  }, 300); // 300ms per point for "thump thump" effect
+};
 
 const getScoreLabel = (score: number) => {
   if (score >= 90) return '優秀';
@@ -38,6 +65,54 @@ const getScoreLabel = (score: number) => {
     <div v-if="order" class="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full">
       <!-- Core Information Card -->
       <div class="lg:col-span-7 flex flex-col gap-6">
+        <!-- Loyalty Card Section -->
+        <section class="bg-tertiary-container/20 rounded-[2rem] p-8 border-2 border-tertiary/20 shadow-sm relative overflow-hidden">
+          <div class="absolute -top-10 -right-10 w-40 h-40 bg-tertiary/5 rounded-full blur-3xl"></div>
+          
+          <div class="flex justify-between items-center mb-8 relative z-10">
+            <div>
+              <h2 class="text-2xl font-black text-tertiary flex items-center gap-2">
+                <span class="material-symbols-outlined">stars</span>
+                健康積點卡
+              </h2>
+              <p class="text-on-tertiary-container text-xs font-bold opacity-70 uppercase tracking-widest mt-1">累積健康，換取獎勵</p>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-bold text-on-tertiary-container block">本次獲得</span>
+              <span class="text-3xl font-black text-tertiary">+ {{ order.pointsGained }} PT</span>
+            </div>
+          </div>
+
+          <!-- Stamps Grid -->
+          <div class="grid grid-cols-5 gap-4 mb-8 relative z-10">
+            <div 
+              v-for="i in 10" 
+              :key="i"
+              :class="[
+                'aspect-square rounded-2xl flex items-center justify-center transition-all duration-500 border-2',
+                i <= displayPoints ? 'bg-tertiary border-tertiary shadow-lg shadow-tertiary/30 scale-100' : 'bg-white/50 border-tertiary/10 scale-95 opacity-50'
+              ]"
+            >
+              <Transition name="bounce">
+                <span v-if="i <= displayPoints" class="material-symbols-outlined text-on-tertiary text-2xl font-bold">check</span>
+                <span v-else class="text-tertiary/20 font-black text-xl">{{ i }}</span>
+              </Transition>
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center relative z-10">
+            <div class="flex-grow">
+               <div class="h-2 bg-tertiary/10 rounded-full overflow-hidden">
+                 <div class="h-full bg-tertiary transition-all duration-500" :style="{ width: (displayPoints % 10 || (displayPoints > 0 ? 10 : 0)) * 10 + '%' }"></div>
+               </div>
+               <p class="text-[10px] font-bold text-on-tertiary-container mt-2 opacity-60">目前進度: {{ displayPoints }} / 10 點</p>
+            </div>
+            <div v-if="displayPoints >= 10" class="ml-6 shrink-0 bg-tertiary text-on-tertiary px-4 py-2 rounded-xl text-xs font-black animate-pulse">
+              恭喜！可換購一餐
+            </div>
+          </div>
+        </section>
+
         <div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_24px_32px_-4px_rgba(27,28,23,0.06)] relative overflow-hidden">
           <div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full -mr-8 -mt-8"></div>
           <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
@@ -67,7 +142,7 @@ const getScoreLabel = (score: number) => {
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row gap-4 mt-auto">
+        <div class="flex flex-col sm:flex-row gap-4">
           <button class="flex-1 bg-primary text-on-primary font-bold py-4 px-6 rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/10 flex items-center justify-center gap-2">
             <span>查看訂單詳情</span>
             <span class="material-symbols-outlined text-sm">arrow_forward</span>
@@ -128,3 +203,14 @@ const getScoreLabel = (score: number) => {
     </div>
   </main>
 </template>
+
+<style scoped>
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+@keyframes bounce-in {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+</style>

@@ -27,13 +27,18 @@
         </span>
       </div>
 
-      <button 
-        @click="cartStore.addToCart(meal)"
-        class="w-full bg-primary text-on-primary hover:bg-primary-container rounded-full py-3 px-4 font-label font-semibold text-sm transition-all active:scale-95 flex items-center justify-center gap-2"
-      >
-        <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
-        加入購物車
-      </button>
+      <div class="flex items-center justify-between gap-4">
+        <div class="text-xl font-bold text-primary">
+          NT$ {{ meal.price }}
+        </div>
+        <button 
+          @click="cartStore.addToCart(meal)"
+          class="flex-grow bg-primary text-on-primary hover:bg-primary-container rounded-full py-3 px-4 font-label font-semibold text-sm transition-all active:scale-95 flex items-center justify-center gap-2"
+        >
+          <span class="material-symbols-outlined text-[18px]">shopping_cart</span>
+          加入
+        </button>
+      </div>
     </div>
   </article>
 </template>

@@ -26,6 +26,7 @@ export interface Meal {
 
 export interface CartItem extends Meal {
   quantity: number;
+  isFree?: boolean; // New: mark as free if redeemed
 }
 
 export interface Tray {
@@ -81,31 +82,62 @@ export const calculateNutritionScore = (items: CartItem[]) => {
 };
 
 export const useCartStore = defineStore('cart', {
-  state: () => ({
-    trays: [] as Tray[],
-    activeTrayId: '',
-    pickupTime: '',
-    lastOrder: null as {
-      orderId: string;
-      pickupTime: string;
-      trayReports: Array<{
-        trayName: string;
-        nutrition: { calories: number; protein: number; carbs: number; fat: number };
-        score: number;
-      }>;
-      totalAmount: number;
-    } | null
-  }),
+  state: () => {
+    // Initialize from localStorage
+    const savedPhone = localStorage.getItem('memberPhone') || '';
+    const loyaltyData = JSON.parse(localStorage.getItem('loyaltyData') || '{}');
+    const savedPoints = savedPhone ? (loyaltyData[savedPhone] || 0) : 0;
+
+    return {
+      trays: [] as Tray[],
+      activeTrayId: '',
+      pickupTime: '',
+      memberPhone: savedPhone,
+      loyaltyPoints: savedPoints,
+      isRewardApplied: false,
+      lastOrder: null as {
+        orderId: string;
+        pickupTime: string;
+        trayReports: Array<{
+          trayName: string;
+          nutrition: { calories: number; protein: number; carbs: number; fat: number };
+          score: number;
+        }>;
+        totalAmount: number;
+        pointsGained: number;
+        previousPoints: number;
+        newTotalPoints: number;
+      } | null
+    }
+  },
   getters: {
     activeTray: (state) => state.trays.find(t => t.id === state.activeTrayId),
     totalItems: (state) => state.trays.reduce((sum, tray) => 
       sum + (tray.items?.reduce((tSum, item) => tSum + (item.quantity || 0), 0) || 0), 0
     ),
-    subtotal: (state) => state.trays.reduce((sum, tray) => 
-      sum + (tray.items?.reduce((tSum, item) => tSum + (item.price || 0) * (item.quantity || 0), 0) || 0), 0
-    ),
+    subtotal: (state) => {
+      return state.trays.reduce((sum, tray) => {
+        return sum + tray.items.reduce((tSum, item) => {
+          // If reward is applied, the most expensive item is free (quantity 1 of it)
+          const price = item.isFree ? 0 : item.price;
+          // If quantity > 1 and one is free, only quantity-1 is paid
+          const effectivePrice = item.isFree ? (item.price * (item.quantity - 1)) : (item.price * item.quantity);
+          return tSum + effectivePrice;
+        }, 0);
+      }, 0);
+    },
     serviceFee: (getters) => Math.round(getters.subtotal * 0.05),
     totalAmount: (getters) => getters.subtotal + getters.serviceFee,
+    estimatedPoints: (getters) => Math.floor(getters.totalAmount / 150),
+    traySubtotals: (state) => {
+      return state.trays.map(tray => {
+        const subtotal = tray.items.reduce((acc, item) => {
+          const effectivePrice = item.isFree ? (item.price * (item.quantity - 1)) : (item.price * item.quantity);
+          return acc + effectivePrice;
+        }, 0);
+        return { id: tray.id, subtotal };
+      });
+    },
     trayNutritionData: (state) => {
       return state.trays.map(tray => {
         const nutrition = (tray.items || []).reduce((acc, item) => {
@@ -126,6 +158,13 @@ export const useCartStore = defineStore('cart', {
     }
   },
   actions: {
+    setMemberPhone(phone: string) {
+      this.memberPhone = phone;
+      localStorage.setItem('memberPhone', phone);
+      
+      const loyaltyData = JSON.parse(localStorage.getItem('loyaltyData') || '{}');
+      this.loyaltyPoints = loyaltyData[phone] || 0;
+    },
     initTrays() {
       if (this.trays.length === 0) {
         this.addTray();
@@ -165,12 +204,17 @@ export const useCartStore = defineStore('cart', {
           tray.items.push({ ...meal, quantity: 1 });
         }
       }
+      // Reset reward if cart changes to avoid inconsistencies
+      this.isRewardApplied = false;
+      this.clearFreeItems();
     },
     removeFromCart(trayId: string, mealId: string) {
       const tray = this.trays.find(t => t.id === trayId);
       if (tray) {
         tray.items = tray.items.filter(item => item.id !== mealId);
       }
+      this.isRewardApplied = false;
+      this.clearFreeItems();
     },
     updateQuantity(trayId: string, mealId: string, quantity: number) {
       const tray = this.trays.find(t => t.id === trayId);
@@ -180,8 +224,40 @@ export const useCartStore = defineStore('cart', {
           item.quantity = Math.max(1, quantity);
         }
       }
+      this.isRewardApplied = false;
+      this.clearFreeItems();
     },
-    // New Action: Move item between trays
+    clearFreeItems() {
+      this.trays.forEach(tray => {
+        tray.items.forEach(item => {
+          item.isFree = false;
+        });
+      });
+    },
+    redeemReward() {
+      if (this.loyaltyPoints < 10) return;
+      
+      this.clearFreeItems();
+      
+      // Find most expensive item across all trays
+      let mostExpensiveItem: CartItem | null = null;
+      this.trays.forEach(tray => {
+        tray.items.forEach(item => {
+          if (!mostExpensiveItem || item.price > mostExpensiveItem.price) {
+            mostExpensiveItem = item;
+          }
+        });
+      });
+      
+      if (mostExpensiveItem) {
+        (mostExpensiveItem as CartItem).isFree = true;
+        this.isRewardApplied = true;
+      }
+    },
+    cancelReward() {
+      this.isRewardApplied = false;
+      this.clearFreeItems();
+    },
     moveItemBetweenTrays(fromTrayId: string, toTrayId: string, mealId: string) {
       if (fromTrayId === toTrayId) return;
       
@@ -205,7 +281,40 @@ export const useCartStore = defineStore('cart', {
     clearCart() {
       this.trays = [];
       this.activeTrayId = '';
+      this.isRewardApplied = false;
       this.initTrays();
+    },
+    completeOrder(orderId: string) {
+      const pointsGained = this.estimatedPoints;
+      const pointsSpent = this.isRewardApplied ? 10 : 0;
+      const previousPoints = this.loyaltyPoints;
+      
+      const newPoints = previousPoints - pointsSpent + pointsGained;
+      
+      // Save to localStorage
+      if (this.memberPhone) {
+        const loyaltyData = JSON.parse(localStorage.getItem('loyaltyData') || '{}');
+        loyaltyData[this.memberPhone] = newPoints;
+        localStorage.setItem('loyaltyData', JSON.stringify(loyaltyData));
+      }
+      
+      this.loyaltyPoints = newPoints;
+      
+      this.lastOrder = {
+        orderId,
+        pickupTime: this.pickupTime,
+        trayReports: this.trayNutritionData.map(t => ({
+          trayName: t.name,
+          nutrition: t.nutrition,
+          score: t.score
+        })),
+        totalAmount: this.totalAmount,
+        pointsGained,
+        previousPoints,
+        newTotalPoints: newPoints
+      };
+      
+      this.clearCart();
     }
   }
 });

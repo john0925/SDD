@@ -9,7 +9,7 @@
           class="appearance-none bg-surface-container-lowest border-none rounded-lg py-2 pl-4 pr-10 text-sm font-bold text-on-surface focus:ring-2 focus:ring-primary/20 cursor-pointer transition-all shadow-sm min-w-[140px]"
         >
           <option v-for="tray in cartStore.trays" :key="tray.id" :value="tray.id">
-            {{ tray.name }} ({{ tray.items.length }} 件)
+            {{ tray.name }} ($ {{ getTraySubtotal(tray.id) }})
           </option>
         </select>
         <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-primary pointer-events-none text-xl">
@@ -41,6 +41,11 @@ import { computed } from 'vue';
 import { useCartStore, calculateNutritionScore } from '../store/cart';
 
 const cartStore = useCartStore();
+
+const getTraySubtotal = (trayId: string) => {
+  const data = cartStore.traySubtotals.find(t => t.id === trayId);
+  return data ? data.subtotal : 0;
+};
 
 const currentTrayScore = computed(() => {
   if (!cartStore.activeTray) return 0;

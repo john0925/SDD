@@ -31,7 +31,7 @@
       "carbs": 45,
       "fat": 22
     },
-    "price": 250,
+    "price": 195,
     "attributes": {
       "isNonRefinedStarch": true,
       "hasDiverseVeg": false
@@ -50,7 +50,7 @@
       "carbs": 12,
       "fat": 14
     },
-    "price": 220,
+    "price": 185,
     "attributes": {
       "isNonRefinedStarch": false,
       "hasDiverseVeg": true
@@ -69,7 +69,7 @@
       "carbs": 55,
       "fat": 18
     },
-    "price": 230,
+    "price": 190,
     "attributes": {
       "isNonRefinedStarch": true,
       "hasDiverseVeg": true
@@ -88,7 +88,7 @@
       "carbs": 25,
       "fat": 12
     },
-    "price": 170,
+    "price": 165,
     "attributes": {
       "isNonRefinedStarch": false,
       "hasDiverseVeg": true
@@ -107,7 +107,7 @@
       "carbs": 8,
       "fat": 28
     },
-    "price": 210,
+    "price": 175,
     "attributes": {
       "isNonRefinedStarch": false,
       "hasDiverseVeg": true
@@ -126,7 +126,7 @@
       "carbs": 48,
       "fat": 16
     },
-    "price": 190,
+    "price": 180,
     "attributes": {
       "isNonRefinedStarch": true,
       "hasDiverseVeg": false
@@ -145,7 +145,7 @@
       "carbs": 10,
       "fat": 32
     },
-    "price": 280,
+    "price": 198,
     "attributes": {
       "isNonRefinedStarch": false,
       "hasDiverseVeg": true
@@ -164,7 +164,7 @@
       "carbs": 15,
       "fat": 22
     },
-    "price": 185,
+    "price": 170,
     "attributes": {
       "isNonRefinedStarch": false,
       "hasDiverseVeg": false
@@ -183,7 +183,7 @@
       "carbs": 52,
       "fat": 20
     },
-    "price": 200,
+    "price": 185,
     "attributes": {
       "isNonRefinedStarch": true,
       "hasDiverseVeg": true

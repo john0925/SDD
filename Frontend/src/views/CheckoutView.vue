@@ -10,6 +10,8 @@ const router = useRouter();
 const draggingMealId = ref<string | null>(null);
 const draggingFromTrayId = ref<string | null>(null);
 
+const memberPhoneInput = ref(cartStore.memberPhone);
+
 onMounted(() => {
   cartStore.initTrays();
   if (!cartStore.pickupTime) {
@@ -34,6 +36,15 @@ const onDrop = (toTrayId: string) => {
   draggingFromTrayId.value = null;
 };
 
+const getTraySubtotal = (trayId: string) => {
+  const data = cartStore.traySubtotals.find(t => t.id === trayId);
+  return data ? data.subtotal : 0;
+};
+
+const updateMember = () => {
+  cartStore.setMemberPhone(memberPhoneInput.value);
+};
+
 const submitOrder = async () => {
   if (cartStore.totalItems === 0) return;
 
@@ -56,17 +67,7 @@ const submitOrder = async () => {
 
     if (response.ok) {
       const data = await response.json();
-      cartStore.lastOrder = {
-        orderId: data.orderId,
-        pickupTime: cartStore.pickupTime,
-        trayReports: cartStore.trayNutritionData.map(t => ({
-          trayName: t.name,
-          nutrition: { ...t.nutrition },
-          score: t.score
-        })),
-        totalAmount: cartStore.totalAmount
-      };
-      cartStore.clearCart();
+      cartStore.completeOrder(data.orderId);
       router.push({ name: 'success', params: { orderId: data.orderId } });
     }
   } catch (error) {
@@ -102,20 +103,24 @@ const submitOrder = async () => {
         ]"
       >
         <div class="bg-surface-container-lowest rounded-[1.9rem] p-8">
-          <div class="flex justify-between items-center mb-8">
+          <div class="flex justify-between items-start mb-8">
             <h2 class="font-headline text-2xl font-bold flex items-center gap-3 text-primary">
               <span class="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center text-sm font-black">
                 {{ index + 1 }}
               </span>
               {{ tray.name }}
             </h2>
-            <button 
-              v-if="cartStore.trays.length > 1"
-              @click="cartStore.removeTray(tray.id)"
-              class="text-error text-xs font-bold hover:underline"
-            >
-              移除托盤
-            </button>
+            <div class="text-right">
+              <p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">托盤小計</p>
+              <p class="text-xl font-bold text-primary">NT$ {{ getTraySubtotal(tray.id) }}</p>
+              <button 
+                v-if="cartStore.trays.length > 1"
+                @click="cartStore.removeTray(tray.id)"
+                class="text-error text-[10px] font-bold hover:underline mt-1"
+              >
+                移除托盤
+              </button>
+            </div>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -145,6 +150,12 @@ const submitOrder = async () => {
                   </div>
                 </div>
                 <div class="flex items-center gap-4">
+                  <div class="text-right mr-2">
+                    <p v-if="item.isFree" class="text-[10px] font-bold text-tertiary italic">免費兌換</p>
+                    <p class="text-sm font-bold" :class="{'line-through text-outline-variant opacity-50': item.isFree}">
+                      ${{ item.price }}
+                    </p>
+                  </div>
                   <div class="flex items-center bg-surface-container-high rounded-lg p-0.5">
                     <button @click="cartStore.updateQuantity(tray.id, item.id, item.quantity - 1)" class="w-6 h-6 flex items-center justify-center hover:bg-white rounded transition-all text-xs">-</button>
                     <span class="w-8 text-center text-sm font-bold">{{ item.quantity }}</span>
@@ -192,8 +203,66 @@ const submitOrder = async () => {
       </section>
     </div>
 
-    <!-- Right Column: Order Summary -->
+    <!-- Right Column: Order Summary & Member -->
     <div class="lg:col-span-4 space-y-6">
+      <!-- Member Section -->
+      <section class="bg-surface-container-lowest rounded-[2rem] p-8 shadow-sm border border-outline-variant/10">
+        <h2 class="font-headline text-xl font-bold mb-6 text-primary flex items-center gap-2">
+          <span class="material-symbols-outlined">card_membership</span>
+          會員專區
+        </h2>
+        
+        <div class="space-y-4">
+          <div>
+            <label class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest block mb-2">會員手機號碼</label>
+            <div class="flex gap-2">
+              <input 
+                v-model="memberPhoneInput" 
+                placeholder="09xx-xxx-xxx"
+                class="flex-grow bg-surface-container-low border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-primary/20 shadow-inner"
+                type="tel"
+              />
+              <button 
+                @click="updateMember"
+                class="bg-secondary text-on-secondary px-4 py-2 rounded-xl text-xs font-bold hover:bg-secondary/90 active:scale-95 transition-all"
+              >
+                確認
+              </button>
+            </div>
+          </div>
+
+          <div v-if="cartStore.memberPhone" class="bg-tertiary-container/30 p-4 rounded-2xl">
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-xs font-bold text-on-tertiary-container">累積點數</span>
+              <span class="text-xl font-black text-tertiary">{{ cartStore.loyaltyPoints }} PT</span>
+            </div>
+            <p class="text-[10px] text-on-tertiary-container/70">每滿 150 元可累積 1 點</p>
+            
+            <div v-if="cartStore.loyaltyPoints >= 10" class="mt-4">
+              <button 
+                v-if="!cartStore.isRewardApplied"
+                @click="cartStore.redeemReward"
+                class="w-full bg-tertiary text-on-tertiary py-3 rounded-full text-sm font-black shadow-lg shadow-tertiary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2"
+              >
+                <span class="material-symbols-outlined text-lg">redeem</span>
+                使用 10 點換購餐點
+              </button>
+              <button 
+                v-else
+                @click="cartStore.cancelReward"
+                class="w-full border-2 border-tertiary text-tertiary py-2 rounded-full text-sm font-black hover:bg-tertiary/5 transition-all"
+              >
+                取消兌換
+              </button>
+            </div>
+            <p v-else class="mt-4 text-[10px] font-bold text-on-tertiary-container/60 text-center italic">
+              還差 {{ 10 - cartStore.loyaltyPoints }} 點即可兌換免費餐點
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Order Summary -->
       <section class="bg-surface-container-low rounded-[2rem] p-8 shadow-sm sticky top-32">
         <h2 class="font-headline text-xl font-bold mb-6 text-primary">訂單摘要</h2>
         <div class="space-y-6">
@@ -202,11 +271,23 @@ const submitOrder = async () => {
               <span>總件數</span>
               <span class="font-bold text-on-surface">{{ cartStore.totalItems }} 件</span>
             </div>
+            <div v-if="cartStore.isRewardApplied" class="flex justify-between text-sm text-tertiary font-bold">
+              <span>點數兌換折扣</span>
+              <span>- 100%</span>
+            </div>
             <div class="flex justify-between text-sm text-on-surface-variant">
               <span>服務費 (5%)</span>
               <span class="font-bold text-on-surface">${{ cartStore.serviceFee }}</span>
             </div>
           </div>
+          
+          <div v-if="cartStore.memberPhone" class="bg-primary/5 p-4 rounded-xl border border-primary/10">
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-on-surface-variant">本次預計獲得點數</span>
+              <span class="font-black text-primary text-base">+ {{ cartStore.estimatedPoints }} PT</span>
+            </div>
+          </div>
+
           <div>
              <label class="text-[10px] font-bold text-primary uppercase tracking-widest block mb-3">預定取餐時間</label>
              <input v-model="cartStore.pickupTime" class="w-full bg-surface-container-lowest border-none rounded-xl p-4 text-on-surface font-bold focus:ring-2 focus:ring-primary/20 shadow-inner" type="time" />
